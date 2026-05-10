@@ -7,9 +7,14 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 //引入svg虚拟模块 
 //@ts-ignore
 import 'virtual:svg-icons-register'
+//引入路由
+import router from '@/router'
 
 //创建应用实例
 const app = createApp(App)
+
+//安装路由
+app.use(router)
 
 //安装ui组件库
 app.use(ElementPlus, {

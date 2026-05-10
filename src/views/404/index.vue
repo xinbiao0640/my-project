@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>一级路由 404</h1>
   </div>
 </template>
 
