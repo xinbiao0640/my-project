@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
+//引入全局样式
+import '@/styles/index.scss'
 //引入组件库与样式
 import ElementPlus from 'element-plus'
 import "element-plus/dist/index.css";
@@ -24,8 +26,5 @@ app.use(ElementPlus, {
 //安装自定义插件
 import globalComponent from "@/components";
 app.use(globalComponent)
-
-//引入全局样式
-import '@/styles/index.scss'
 
 app.mount('#app')
