@@ -11,12 +11,17 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'virtual:svg-icons-register'
 //引入路由
 import router from '@/router'
+//引入状态管理
+import pinia from '@/store'
 
 //创建应用实例
 const app = createApp(App)
 
 //安装路由
 app.use(router)
+
+//安装状态管理
+app.use(pinia)
 
 //安装ui组件库
 app.use(ElementPlus, {

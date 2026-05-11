@@ -15,7 +15,8 @@ export interface UserInfo {
 export interface LoginResponse {
     code: number;
     data: {
-        token: string;
+        token?: string;
+        message?: string;
     }
 }
 
