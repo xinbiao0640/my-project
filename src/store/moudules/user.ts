@@ -4,10 +4,12 @@ import type { LoginData } from '@/api/user/type';
 import { reqLogin } from '@/api/user';
 import { ref } from 'vue';
 import { getToken, setToken } from '@/utils/token';
+import { routes } from '@/router/routers';
 
 const useUserStore = defineStore('user', () => {
     let token = ref( getToken() );
-
+    const menuRoutes = ref(routes);
+    
     async function login( data: LoginData ) {
         let result = await reqLogin(data)
         console.log(result);
@@ -20,7 +22,7 @@ const useUserStore = defineStore('user', () => {
         }
     }
 
-    return{ login, token }
+    return{ login, token, menuRoutes }
 })
 
 export default useUserStore;

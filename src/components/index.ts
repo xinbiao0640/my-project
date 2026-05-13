@@ -1,4 +1,5 @@
 import SvgIcon from '@/components/SvgIcon/index.vue'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import type { App, Component} from 'vue'
 
 const allGlobalComponent: Record<string, Component> = { SvgIcon }
@@ -8,5 +9,9 @@ export default {
         Object.keys(allGlobalComponent).forEach(key =>{
             app.component(key, allGlobalComponent[key]);
         })
+        //注册element-plus图标组件
+        for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+            app.component(key, component)
+        }
     }
 }
