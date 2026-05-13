@@ -10,7 +10,7 @@
     </div>
 
     <div class="layout_tabbar">
-      456
+      <Tabbar />
     </div>
 
     <div class="layout_content">
@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import Logo from './logo/index.vue';
 import Menu from './menu/index.vue';
+import Tabbar from './tabbar/index.vue';
 import Main from './main/index.vue';
 import { ElScrollbar } from 'element-plus';
 import useUserStore from '@/store/moudules/user';
@@ -33,20 +34,21 @@ let userStore = useUserStore();
 .layout_container {
   width: 100%;
   height: 100vh;
-  background-color: #000000;
+  //background-color: #000000;
 
   .layout_menu {
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background-color;
-  }
-  .scrollbar {
-    width: 100%;
-    height: calc(100vh - 50px);
-    .el-menu{
-      border-right: 0px;
+    .scrollbar {
+      width: 100%;
+      height: calc(100vh - 50px);
+      .el-menu{
+        border-right: 0px;
+      }
     }
   }
+
   .layout_tabbar {
     position: fixed;
     top: 0;
