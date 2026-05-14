@@ -1,10 +1,10 @@
 <template>
     <template v-if="true" v-for="item in menuList" :key="item.path">
         <el-menu-item :index="item.path" v-if="!item.children && item.meta?.title" @click="goRoute(item.path)">
+            <el-icon v-if="item.meta?.icon">
+                <component :is="item.meta.icon"></component>
+            </el-icon>
             <template #title>
-                <el-icon v-if="item.meta?.icon">
-                    <component :is="item.meta.icon"></component>
-                </el-icon>
                 <span> {{ item.meta.title }} </span>
             </template>
         </el-menu-item>
