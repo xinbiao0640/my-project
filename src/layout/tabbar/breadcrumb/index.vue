@@ -4,16 +4,21 @@
             <component :is="settingStore.isFolded ? 'Expand' : 'Fold' " />
         </el-icon>
         <el-breadcrumb separator-icon="ArrowRight">
-            <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">test</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">test</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">detail</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="(item,index) in $route.matched" :key="index" :to="{ path: item.path }" v-show="item.meta.title">
+                <el-icon style="margin:0 2px; vertical-align: top;">
+                    <component :is="item.meta.icon"></component>
+                </el-icon>
+                <span>{{ item.meta.title }}</span>
+            </el-breadcrumb-item>
         </el-breadcrumb>
     </div>
 </template>
 
 <script setup lang="ts">
 import useLayoutSettingStore from '@/store/moudules/setting';
+import { useRoute } from 'vue-router'
+
+let route = useRoute()
 const settingStore = useLayoutSettingStore();
 
 const foldMenu = () => {
