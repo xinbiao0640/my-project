@@ -19,5 +19,5 @@ export const reqLogin = (data: LoginData) => {
     return request.post<LoginData, LoginResponse>(API.LOGIN_URL, data);
 }
 export const getUserInfo = () => {
-    return request.get<userResponseData>(API.USER_INFO_URL);
+    return request.get<any, userResponseData>(API.USER_INFO_URL);
 }

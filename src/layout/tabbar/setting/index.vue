@@ -4,11 +4,11 @@
     <el-button icon="FullScreen" size="small" circle @click="updatefullscreen"></el-button>
     <el-button icon="Setting" size="small" circle></el-button>
     <el-avatar :size="24"
-        src="https://media.prts.wiki/thumb/2/2d/Avatar_special_20.png/120px-Avatar_special_20.png?v=o0m8l7bqf229a532mkyhlvwxgf1lizv"
+        :src="userStore.avatar"
         style="margin:0px 10px;" />
     <el-dropdown trigger="click">
         <span>
-            admin
+            {{ userStore.username }}
             <el-icon style="vertical-align: middle;">
                 <ArrowDown />
             </el-icon>
@@ -25,8 +25,9 @@
 
 <script setup lang="ts">
 import useLayoutSettingStore from '@/store/moudules/setting';
-
+import useUserStore from '@/store/moudules/user';
 const settingStore = useLayoutSettingStore();
+const userStore = useUserStore();
 
 const updateRefresh = () => {
   settingStore.needRefresh = true;
