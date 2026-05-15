@@ -4,8 +4,9 @@ import { ref } from 'vue';
 
 const useLayoutSettingStore = defineStore('setting', () => {
     let isFolded = ref(false)
+    let needRefresh = ref(false)
 
-    return{ isFolded }
+    return{ isFolded, needRefresh }
 })
 
 export default useLayoutSettingStore;

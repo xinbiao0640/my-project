@@ -1,7 +1,7 @@
 <template>
   <div class="setting">
-    <el-button icon="Refresh" size="small" circle></el-button>
-    <el-button icon="FullScreen" size="small" circle></el-button>
+    <el-button icon="Refresh" size="small" circle @click="updateRefresh"></el-button>
+    <el-button icon="FullScreen" size="small" circle @click="updatefullscreen"></el-button>
     <el-button icon="Setting" size="small" circle></el-button>
     <el-avatar :size="24"
         src="https://media.prts.wiki/thumb/2/2d/Avatar_special_20.png/120px-Avatar_special_20.png?v=o0m8l7bqf229a532mkyhlvwxgf1lizv"
@@ -24,7 +24,21 @@
 </template>
 
 <script setup lang="ts">
+import useLayoutSettingStore from '@/store/moudules/setting';
 
+const settingStore = useLayoutSettingStore();
+
+const updateRefresh = () => {
+  settingStore.needRefresh = true;
+}
+const updatefullscreen = () => {
+  let isFullscreen = document.fullscreenElement;
+  if(!isFullscreen){
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
+}
 </script>
 
 <style lang="scss" scoped>
