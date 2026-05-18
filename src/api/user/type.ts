@@ -1,33 +1,25 @@
 //
-export interface UserInfo {
-    userId: number,
-    avatar: string,
-    username: string,
-    password: string,
-    desc: string,
-    roles: string[],
-    buttons: string[],
-    routes: string[],
-    token: string,
-    
-}
-
-export interface LoginResponse {
-    code: number;
-    data: {
-        token?: string;
-        message?: string;
-    }
-}
-
 export interface LoginData {
     username: string;
     password: string;
 }
 
-export interface userResponseData {
+export interface ResponseData {
     code: number;
+    message: string;
+    ok: boolean;
+}
+
+export interface LoginResponse extends ResponseData {
+    data: string;
+}
+
+export interface UserInfoResponse extends ResponseData {
     data: {
-        checkUser: UserInfo;
+        routes: string[];
+        buttons: string[];
+        roles: string[];
+        name: string;
+        avatar: string;
     }
 }

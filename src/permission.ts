@@ -20,7 +20,7 @@ router.beforeEach(async(to) => {
                     await userStore.userInfo();
                     return ;
                 }catch(error) {
-                    userStore.logout();
+                    await userStore.logout();
                     return {
                         path: '/login',
                         query: { redirect: to.fullPath }
