@@ -15,7 +15,7 @@
         </span>
         <template #dropdown>
             <el-dropdown-menu>
-                <el-dropdown-item>Action 1</el-dropdown-item>
+                <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
                 <el-dropdown-item>Action 2</el-dropdown-item>
             </el-dropdown-menu>
         </template>
@@ -26,6 +26,10 @@
 <script setup lang="ts">
 import useLayoutSettingStore from '@/store/moudules/setting';
 import useUserStore from '@/store/moudules/user';
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
 const settingStore = useLayoutSettingStore();
 const userStore = useUserStore();
 
@@ -39,6 +43,10 @@ const updatefullscreen = () => {
   } else {
     document.exitFullscreen()
   }
+}
+const logout = () => {
+  userStore.logout();
+  router.push({ path: '/login', query: { redirect: route.fullPath } });
 }
 </script>
 

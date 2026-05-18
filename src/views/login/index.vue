@@ -26,11 +26,12 @@ import { ref, reactive } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue';
 import { ElNotification } from 'element-plus';
 import useUserStore from '@/store/moudules/user';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute} from 'vue-router';
 import { getTime } from '@/utils/time';
 
 let userStore = useUserStore();
 let router = useRouter();
+let route = useRoute();
 let loading = ref(false);
 
 const validatorUsername = (_rule: any, value: string, callback: (error?: Error | string) => void) => {
@@ -103,7 +104,8 @@ const handleLogin = async() => {
     loading.value = true;
     try {
         await userStore.login(loginForm);
-        router.push('/home');
+        let redirectPath = route.query.redirect as string || '/home';
+        router.push(redirectPath);
         ElNotification({
             type: 'success',
             title: `HI, ${getTime()}好`,
