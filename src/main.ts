@@ -11,6 +11,8 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'virtual:svg-icons-register'
 //引入路由
 import router from '@/router'
+//引入权限控制
+import '@/permission'
 //引入状态管理
 import pinia from '@/store'
 
