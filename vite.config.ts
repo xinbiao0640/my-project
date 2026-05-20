@@ -40,7 +40,7 @@ export default defineConfig(({ command, mode })=>{
       proxy: {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_SERVE,
-          changeOrigin: false,
+          changeOrigin: true,
           rewrite: (path) => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), '')
         }
       }
