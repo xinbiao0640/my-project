@@ -34,7 +34,7 @@
     </el-card>
 
   <el-dialog v-model="dialogFormVisible" :title="trademarkForm.id?'修改品牌':'添加品牌'" width="600" @closed="dialogClosed">
-      <el-form label-width="auto" :model="trademarkForm" :rules="rules" ref="formRef">
+      <el-form :model="trademarkForm" :rules="rules" ref="formRef">
         <el-form-item label="品牌名称" prop="tmName" >
           <el-input placeholder="请输入品牌名称" v-model="trademarkForm.tmName" style="width: 80%;"></el-input>
         </el-form-item>
