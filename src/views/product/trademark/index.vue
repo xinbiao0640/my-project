@@ -28,9 +28,7 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination v-model:current-page="pageNo" v-model:page-size="limit" :page-sizes="[1, 3, 5, 7]"
-        size="default" :disabled="false" :background="true" layout="prev, pager, next, jumper, ->, sizes, total"
-        :total="total" />
+      <Pagination v-model:pageNo="pageNo" v-model:limit="limit" :total="total"/>
     </el-card>
 
   <el-dialog v-model="dialogFormVisible" :title="trademarkForm.id?'修改品牌':'添加品牌'" width="600" @closed="dialogClosed">

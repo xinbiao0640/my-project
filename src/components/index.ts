@@ -1,9 +1,10 @@
 import Category from '@/components/Category/index.vue';
+import Pagination from '@/components/Pagination/index.vue';
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import type { App, Component} from 'vue'
 
-const allGlobalComponent: Record<string, Component> = { SvgIcon, Category }
+const allGlobalComponent: Record<string, Component> = { SvgIcon, Category, Pagination }
 //对外暴露插件对象
 export default {
     install(app:App){
