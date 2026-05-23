@@ -59,7 +59,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watch, reactive } from 'vue';
 import { reqTrademark, reqAddOrUpdateTrademark, reqDeleteTrademark } from "@/api/product/trademark";
-import type { Records, Trademark } from "@/api/product/trademark/type";
+import type { TrademarkList, Trademark } from "@/api/product/trademark/type";
 import useUserStore from '@/store/moudules/user'
 import { ElMessage, type UploadProps } from 'element-plus'
 
@@ -69,7 +69,7 @@ const headers = {Token: userStore.token}
 const pageNo = ref<number>(1);
 const limit = ref<number>(1);
 const total = ref<number>(0);
-const trademarkArr = ref<Records>([]);
+const trademarkArr = ref<TrademarkList>([]);
 const loading = ref<boolean>(false)
 const isResetting = ref<boolean>(false)
 const dialogFormVisible = ref<boolean>(false)

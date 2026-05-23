@@ -12,11 +12,11 @@ export interface Trademark {
     logoUrl: string;
 }
 
-export type Records = Trademark[];
+export type TrademarkList = Trademark[];
 
 export interface TrademarkResponse extends ResponseData {
     data: {
-        records: Records;
+        records: TrademarkList;
         total: number;
         size: number;
         current: number;
